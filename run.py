@@ -26,14 +26,40 @@ def game(word):
     while not guessed and attempts > 0:
         guess = input("Please guess a word or a letter: ").upper()
         if len(guess) == 1 and guess.isalpha():
+            if guess in letters_guessed:
+                print("You guessed already the letter", guess)
+            elif guess not in word:
+                print(guess, "its not in the word.")
+                attempts -= 1
+                letters_guessed.append(guess)
+            else:
+                print("Amazing Job", guess, "its in the word!")
+                letters_guessed.append(guess)
+                list_as_word = list(completion_word)
+                indices = [i for i, letter in enumerate(word) if letter == guess]
+                for index in indices:
+                    list_as_word[index] = guess
+                completion_word = "".join(list_as_word)
+                if "_" not in completion_word:
+                    guessed = True
 
         elif len(guess) == len(word) and guess.isalpha():
+            if guess in words_guessed:
+                print("You gussed already the word", guess)
+            elif guess != word:
+                print(guess, "its not the word.")
+                attempts -= 1
+                words_guessed.append(guess)
+            else:
+                guessed = True
+                completion_word = word
+
 
         else: 
             print("Wrong guess")
-            print(hangman_display(attempts))
-            print(completion_word)
-            print("\n")
+        print(hangman_display(attempts))
+        print(completion_word)
+        print("\n")
 
 
 
