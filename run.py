@@ -130,3 +130,12 @@ def hangman_display(attempts):
     return stages[attempts]
 
 
+def main():
+    word = get_word()
+    play(word)
+    while input("Do you want to play again? (Y/N) ").upper() == "Y"
+        word = get_word()
+        play(word)
+
+    if __name__ == "__main__":
+        main()
