@@ -60,6 +60,10 @@ def game(word):
         print(hangman_display(attempts))
         print(completion_word)
         print("\n")
+    if guessed:
+        print("Congratulation, you found the right word!! You Win!!!!")
+    else:
+        print("Ohh Sorry, you are out of attempte. The word was" + word +". Hopfully next time you can get it!")
 
 
 
