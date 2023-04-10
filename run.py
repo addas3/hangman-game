@@ -9,6 +9,9 @@ def get_word():
     return word.upper()
 
 def game(word):
+    """
+    The base of the game where it have the welcome message and the while loop
+    """
     completion_word = "_" * len(word)
     guessed = False
     words_guessed = []
@@ -20,6 +23,17 @@ def game(word):
     print(completion_word)
     print("Let's start the game!")
     print("\n")
+    while not guessed and attempts > 0:
+        guess = input("Please guess a word or a letter: ").upper()
+        if len(guess) == 1 and guess.isalpha():
+
+        elif len(guess) == len(word) and guess.isalpha():
+
+        else: 
+            print("Wrong guess")
+            print(hangman_display(attempts))
+            print(completion_word)
+            print("\n")
 
 
 
