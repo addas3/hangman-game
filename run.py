@@ -1,12 +1,14 @@
 import random
 from listwords import list_word
 
+
 def get_word():
     """
     Getting the word from the listword and chaning it to uppercase
     """
     word = random.choice(list_word)
     return word.upper()
+
 
 def game(word):
     """
@@ -53,8 +55,6 @@ def game(word):
             else:
                 guessed = True
                 completion_word = word
-
-
         else: 
             print("Wrong guess")
         print(hangman_display(attempts))
@@ -63,10 +63,14 @@ def game(word):
     if guessed:
         print("Congratulation, you found the right word!! You Win!!!!")
     else:
-        print("Ohh Sorry, you are out of attempte. The word was" + word +". Hopfully next time you can get it!")
+        print("Ohh Sorry, you are out of attempte. The word was" + word + ". Hopfully next time you can get it!")
+
 
 def hangman_display(attempts):
-    stages = [ #final stage: head, torso, both arms and both legs
+    """
+    The stages we display for the hangman
+    """
+    stages = [  # final stage: head, torso, both arms and both legs
                """
                   --------
                   |      |
@@ -131,11 +135,14 @@ def hangman_display(attempts):
 
 
 def main():
+    """
+    Main game to control and loop to try again
+    """
     word = get_word()
-    play(word)
-    while input("Do you want to play again? (Y/N) ").upper() == "Y"
+    game(word)
+    while input("Do you want to play again? (Y/N) ").upper() == "Y":
         word = get_word()
-        play(word)
+        game(word)
 
     if __name__ == "__main__":
         main()
