@@ -65,6 +65,68 @@ def game(word):
     else:
         print("Ohh Sorry, you are out of attempte. The word was" + word +". Hopfully next time you can get it!")
 
-
+def hangman_display(attempts):
+    stages = [ #final stage: head, torso, both arms and both legs
+               """
+                  --------
+                  |      |
+                  |      o
+                  |     \\|/
+                  |      | 
+                  |     / \\
+                  -
+               """,
+               # head, torso, both arms, and one leg
+               """
+                  --------
+                   |      |
+                   |      O
+                   |     \\|/
+                   |      |
+                   |     / 
+                   -
+               """,
+               # head, torso, and one arm
+               """
+                  --------
+                   |      |
+                   |      O
+                   |     \\|
+                   |      |
+                   |     
+                   -
+                """,
+                # head and torso
+                """
+                   --------
+                   |      |
+                   |      O
+                   |      |
+                   |      |
+                   |     
+                   -
+                """,
+                # head
+                """
+                   --------
+                   |      |
+                   |      O
+                   |    
+                   |      
+                   |     
+                   -
+                """,
+                # start with empty state
+                """
+                   --------
+                   |      |
+                   |      
+                   |    
+                   |      
+                   |     
+                   -
+                """
+    ]
+    return stages[attempts]
 
 
